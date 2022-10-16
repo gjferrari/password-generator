@@ -2,10 +2,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-/* password requirements: at least 8 characters & no more that 128
-special characters (include or no lowercase, upper case, numeric and/or special characters) 
-*/
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -16,6 +12,82 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 ///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
 
+//ARRAY OF OPTIONS FOR COMPUTER TO PICK
+
+var upperCase = [
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+];
+console.log(upperCase);
+
+var lowerCase = upperCase.map((element) => {
+  return element.toLowerCase();
+});
+console.log(lowerCase);
+
+var fancy = [
+  ",",
+  "!",
+  "#",
+  "$",
+  "%",
+  "&",
+  "(",
+  ")",
+  "*",
+  "+",
+  ",",
+  "-",
+  ".",
+  "/",
+  ":",
+  ";",
+  "<",
+  "=",
+  ">",
+  "?",
+  "@",
+  "[",
+  "^",
+  "`",
+  "{",
+  "|",
+  "}",
+  "~",
+];
+console.log(fancy);
+
+var nums = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+// Write password to the #password input
+/* password requirements: at least 8 characters & no more that 128
+special characters (include or no lowercase, upper case, numeric and/or special characters) 
+*/
+
 function generatePassword() {
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
   /* if (How many characters do you want you password to be) 
@@ -23,47 +95,55 @@ function generatePassword() {
       else (you fucked up start again)
     */
 
-    var charLenghth = prompt("WHATS UP"); //parseint 
-    console.log(charLenghth)
+  var validChar = [];
 
-    if (charLenghth <= 7) {
-      alert("Please choose a number between 8-128")
+  var isValid = false;
+  while (!isValid) {
+    var charLenghth = prompt(
+      "How many characters would you like your password to contain?"
+    ); //parseint
+    console.log(charLenghth);
+
+    if (charLenghth >= 8 && charLenghth <= 128) {
+      isValid = true;
+    } else {
+      alert("Please choose a number between 8-128");
     }
+  }
 
-    if (charLenghth >= 128) {
-      alert ("Please choose a number between 8-128")
-    }
-    
-    //empty array to store info 
-    //for loop
-    //fart=[] (writing)
-  
-    //.join method (array to string)
-  
+  var isUpper = confirm("Do you want uppercase letters?");
+  if (isUpper) {
+    validChar = validChar.concat(upperCase);
+  }
+  console.log(isUpper);
 
-    var isMichi = confirm ("Is this michi")
+  var isLower = confirm("Do you want lowercase letters?");
+  if (isLower) {
+    validChar = validChar.concat(lowerCase);
+  }
+  console.log(isLower);
 
-    var auggie = confirm("Lowercase?")
-    console.log (michi,auggie)
-    //if password is less than or equal 7 then function ends
-    // if password is between 8-128 then ask if you want upper case characters CONFIRM (BOOLEAN), then CONFIRM lower case, CONFIRM numeric, CONFIRM specials 
-    //boolean OR *mdn boolean operators 
+  var isFancy = confirm("Do you want special characters?");
+  if (isFancy) {
+    validChar = validChar.concat(fancy);
+  }
+  console.log(isFancy);
 
+  var isNumber = confirm("Do you to use numbers?");
+  if (isNumber) {
+    validChar = validChar.concat(nums);
+  }
+  console.log(isNumber);
 
-
-//VARIABLES    
+  let password = "";
+  for (let index = 0; index < charLenghth; index++) {
+    var ranNum = Math.random() * validChar.length;
+    ranNum = Math.floor(ranNum);
+    var ranChar = validChar[ranNum];
+    password += ranChar;
+  }
+  return password;
 }
-var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
-    console.log(upperCase)
-
-var lowerCase = upperCase.map(element => {
-  return element.toLowerCase();
-});
-  console.log(lowerCase)
-
-var fancy = [",", "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", 
-    ":", ";", "<", "=", ">", "?", "@", "[", "^", "`", "{", "|", "}", "~"]
-  console.log(fancy)
 
 /* will probably need to use "prompt" 
 when I press genterate password, prompt box asks for number of characters 
@@ -94,3 +174,21 @@ THEN a password is generated that matches the selected criteria
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 */
+
+// if password is between 8-128 then ask if you want upper case characters CONFIRM (BOOLEAN), then CONFIRM lower case, CONFIRM numeric, CONFIRM specials
+//boolean OR *mdn boolean operators
+
+//empty array to store info
+//for loop
+//fart=[] (writing)
+
+//.join method (array to string)
+
+/*var isMichi = confirm ("Is this michi")
+
+    var auggie = confirm("Lowercase?")
+    console.log (michi,auggie)*/
+
+//if password is less than or equal 7 then function ends
+
+//VARIABLES
