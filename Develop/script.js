@@ -23,16 +23,22 @@ function generatePassword() {
       else (you fucked up start again)
     */
 
-    var frodo = prompt("WHATS UP");
-    console.log(frodo)
+    var charLenghth = prompt("WHATS UP"); //parseint 
+    console.log(charLenghth)
 
-    if (frodo <= 7) {
+    if (charLenghth <= 7) {
       alert("Please choose a number between 8-128")
     }
-    else if (frodo >= 128) {
+
+    if (charLenghth >= 128) {
       alert ("Please choose a number between 8-128")
     }
     
+    //empty array to store info 
+    //for loop
+    //fart=[] (writing)
+  
+    //.join method (array to string)
   
 
     var isMichi = confirm ("Is this michi")
@@ -42,7 +48,22 @@ function generatePassword() {
     //if password is less than or equal 7 then function ends
     // if password is between 8-128 then ask if you want upper case characters CONFIRM (BOOLEAN), then CONFIRM lower case, CONFIRM numeric, CONFIRM specials 
     //boolean OR *mdn boolean operators 
+
+
+
+//VARIABLES    
 }
+var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+    console.log(upperCase)
+
+var lowerCase = upperCase.map(element => {
+  return element.toLowerCase();
+});
+  console.log(lowerCase)
+
+var fancy = [",", "!", "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", 
+    ":", ";", "<", "=", ">", "?", "@", "[", "^", "`", "{", "|", "}", "~"]
+  console.log(fancy)
 
 /* will probably need to use "prompt" 
 when I press genterate password, prompt box asks for number of characters 
