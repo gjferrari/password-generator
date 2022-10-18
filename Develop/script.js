@@ -89,19 +89,14 @@ special characters (include or no lowercase, upper case, numeric and/or special 
 */
 
 function generatePassword() {
-  /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
-  /* if (How many characters do you want you password to be) 
-      else if
-      else (you fucked up start again)
-    */
-
   var validChar = [];
 
+  //set boolean for first question: how many characters would you like your password to contain?
   var isValid = false;
   while (!isValid) {
     var charLenghth = prompt(
       "How many characters would you like your password to contain?"
-    ); //parseint
+    );
     console.log(charLenghth);
 
     if (charLenghth >= 8 && charLenghth <= 128) {
@@ -110,6 +105,9 @@ function generatePassword() {
       alert("Please choose a number between 8-128");
     }
   }
+
+  // if password is between 8-128 then ask if you want upper case characters CONFIRM (BOOLEAN), then CONFIRM lower case, CONFIRM numeric, CONFIRM specials
+  //boolean OR *mdn boolean operators
 
   var isUpper = confirm("Do you want uppercase letters?");
   if (isUpper) {
@@ -135,6 +133,8 @@ function generatePassword() {
   }
   console.log(isNumber);
 
+  //for loop to store user choices into password using information stored in validChar variable
+
   let password = "";
   for (let index = 0; index < charLenghth; index++) {
     var ranNum = Math.random() * validChar.length;
@@ -144,51 +144,3 @@ function generatePassword() {
   }
   return password;
 }
-
-/* will probably need to use "prompt" 
-when I press genterate password, prompt box asks for number of characters 
-5 prompts: lenghth of password (PROMPT), lowercase, uppercase, numeric, & special characters (CONFIRM) VARIABLES 
-
-For loop potentially for lower case upper case 
-
-If not right characters - alert box (ok only)
-
-alert - just shows the message - ok 
-prompt - input box with ok and cancel 
-confirm - else (message with an ok & cancel)
-
-
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-*/
-
-// if password is between 8-128 then ask if you want upper case characters CONFIRM (BOOLEAN), then CONFIRM lower case, CONFIRM numeric, CONFIRM specials
-//boolean OR *mdn boolean operators
-
-//empty array to store info
-//for loop
-//fart=[] (writing)
-
-//.join method (array to string)
-
-/*var isMichi = confirm ("Is this michi")
-
-    var auggie = confirm("Lowercase?")
-    console.log (michi,auggie)*/
-
-//if password is less than or equal 7 then function ends
-
-//VARIABLES
