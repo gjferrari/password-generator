@@ -9,7 +9,7 @@ This project generates a secure randomized password based on the user's answers 
 - Clone with repository: https://github.com/gjferrari/password-generator
   - git clone: git@github.com:gjferrari/password-generator.git
 - Open Repo with VS Code or IDE of your choice
-- Open Index.html with Live Server to inspect Code or visit
+- Open Index.html with Live Server to inspect Code or visit: https://gjferrari.github.io/password-generator/
 
 ## Mock-Up
 
